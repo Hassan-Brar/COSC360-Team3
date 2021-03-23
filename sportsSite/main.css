@@ -1,0 +1,11 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+}
+
+.test {
+    height: 50vh;
+}
