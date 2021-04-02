@@ -1,7 +1,3 @@
-<?php
-    require_once ('include/signup.inc.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/navFooter.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="CSS/signup.css">
-    <title>Sign up</title>
+    <title>Sports Blog</title>
 </head>
 <body>
 
@@ -43,39 +38,15 @@
             </div>
         </div>
     </nav>
-    <div>
-    <?php
-        if(isset($_POST['submitted'])){
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-            $username = $_POST['username'];
-            $password = $_POST['password'];
 
-            $sql = "INSERT INTO user (firstname, lastname, username, pass) VALUES (?,?,?,?);";
-            $stmtinsert = $db->prepare($sql);
-            $result = $stmtinsert->execute([$firstname, $lastname, $username, $password]);
-            if($result){
-                echo "Sign up successful";
-            }else{
-                echo "Error";
-            }
-        }
-
-    ?>
-    </div>
-    <!-- Sign up Form -->
+    <!-- Just to add spacing to simulate content in there -->
     <div>
-        <form action="signup.php" method="post">
+        <form action="sigin.php" method="get">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <h1>Registration</h1>
+                        <h1>Sign in</h1>
                         <hr class="mb-3">
-                        <label for="firstname"><b>First Name</b></label>
-                        <input type="text" name="firstname" required>
-
-                        <label for="lastname"><b>Last Name</b></label>
-                        <input type="text" name="lastname" required>
 
                         <label for="username"><b>Username</b></label>
                         <input type="text" name="username" required>
@@ -83,9 +54,9 @@
                         <label for="password"><b>Password</b></label>
                         <input type="password" name="password" required>
 
-                        <input type="submit" class="btn btn-primary" name="submitted" value="Sign Up">
+                        <input type="submit" class="btn btn-primary" name="submitted" value="Sign in">
                         <hr class="mb-3">
-                        <button href="Signin.php" class="btn btn-primary" type="button">Already have an account? Log in</button>
+                        <button href="Signup.php" class="btn btn-primary" type="button">Don't have an account? Sign up</button>
                         <hr class="mb-1">
                     </div>    
                 </div>
