@@ -18,8 +18,8 @@
     <script src="https://kit.fontawesome.com/a047e9d6ce.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="navFooter.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="CSS/navFooter.css">
+    <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/signup.css">
     <title>Sign up</title>
 </head>
