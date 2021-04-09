@@ -2,6 +2,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+    font-family: 'Graduate', cursive;
+}
+
 .btn-primary {
     background-color: #007BFF;
 }

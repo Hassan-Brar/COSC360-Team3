@@ -1,0 +1,38 @@
+#blog {
+    padding-top: 1rem;
+}
+
+#like-button {
+    padding-bottom: 2rem;
+}
+
+#blog-img {
+    width: 100vw;
+}
+
+#article-title {
+    padding-top: 1rem;
+}
+
+#profile-icon {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+#comments-section {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+}
+
+.list-group{
+    max-height: 600px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#post-comment {
+    height: 400px;
+}
