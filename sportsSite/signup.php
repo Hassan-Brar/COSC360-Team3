@@ -1,70 +1,144 @@
-<?php
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // get the post request data
-  $firstname = $_POST['firstname'];
-  $lastname = $_POST['lastname'];
-  $username = $_POST['username'];
-  $email = $_POST['email'];
-  $pass = $_POST['password'];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
 
-  $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  // login to the database
-  $host = "localhost";
-  $database = "project";
-  $user = "webuser";
-  $password = "P@ssw0rd";
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Open+Sans&display=swap" rel="stylesheet">
 
-  $connection = mysqli_connect($host, $user, $password, $database);
+    <script src="https://kit.fontawesome.com/a047e9d6ce.js" crossorigin="anonymous"></script>
 
-  // error check
-  $error = mysqli_connect_error();
-  
-  if($error != null) {
-    $output = "<p>Unable to connect to database!</p>";
-    exit($output);
-  }   
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/navFooter.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/signup.css">
+    <title>Sign up</title>
+</head>
+<body>
 
-  else {
-    // check if it exists
-    $sql = "SELECT email FROM Users WHERE email = '$email'";
-    $results = mysqli_query($connection, $sql);
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <h1 class="navbar-brand">T3 Blogs</h1>
 
-    if(mysqli_num_rows($results) != 0) {
-      header("Location: http://localhost/project/sportsSite/signup.html?error='wrongUorE'"); 
-      exit(1);
-    }
+        <!-- TOGGLE BUTTON -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    $sql = "SELECT username FROM Users WHERE username = '$username'";
-    $results = mysqli_query($connection, $sql);
+        <!-- NAVBAR ELEMENTS -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <div class="navbar-nav ml-auto">
+                <a href="mainPage.php"><button class="btn btn-primary" type="button">Home</button></a>
+                <a href="signup.php"><button class="btn btn-primary" type="button">Sign up</button></a>
+                <a href="signin.php"><button class="btn btn-primary" type="button">Login</button></a>
+                <a href="postPage.php"><button class="btn btn-primary" type="button">Post a Blog</button></a>
+            </div>
+        </div>
+    </nav>
 
-    if(mysqli_num_rows($results) != 0) {
-      header("Location: http://localhost/project/sportsSite/signup.html?error='wrongUorE'");
-      exit(1);
-    }
+    <!-- Sign up Form -->
+    <form action="signup-verify.php" id="signup-form" method="post" enctype="multipart/form-data">
+        <div class="container" id="signup-area">
+            <h1>Registration</h1>
+            <hr class="mb-3">
 
-    else {
-      echo "Hi!";
-      $pass = md5($pass);
-      $sql = "INSERT INTO Users(firstname, lastname, username, pass, profileImage, isAdmin) 
-              VALUES('$firstname', '$lastname', '$username', '$pass', '$image', FALSE)";
-      
-      $results = mysqli_query($connection, $sql);
+            <?php
+                if (isset($_REQUEST['error'])) {
+                    echo("
+                    <div class='alert alert-danger' role='alert'>
+                        Username or Email already used!
+                    </div>");
+                }
+            ?>
 
-      if($results) {
-        header("Location: http://localhost/project/sportsSite/mainPage.html"); 
-        exit(1);
-      }
-      else
-        echo "Unable to add user";
-    }
+            <div class="container">
+                <div class="form-group row justify-content-center">
+                    <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
+                    </div>
+                </div>
 
-    mysqli_close($connection);
-  }
-}
+                <div class="form-group row justify-content-center">
+                    <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
+                    </div>
+                </div>
 
-if($_SERVER['REQUEST_METHOD'] == 'GET') {
-  echo "Unable to make a GET request!";
-  echo "<a href='http://localhost/lab9/lab9-1.html'> Return to user entry</a>";
-}
-?>
+                <div class="form-group row justify-content-center">
+                    <label for="email" class="col-sm-2 col-form-label">Email Address</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center">
+                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center">
+                    <label for="re-enter-password" class="col-sm-2 col-form-label">Re-enter Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="re-enter-password" placeholder="Re-enter Password" required>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center">
+                    <label for="image" class="col-sm-2 col-form-label">Image</label>
+                    <div class="col-sm-4">
+                        <input type="file" class="form-control-file" id="image" name="image" placeholder="Image" required>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center">
+                    <input type="submit" class="btn btn-primary justify-content-center" name="submitted" value="Sign Up">
+                </div>
+
+            </div>
+            <hr class="mb-3">
+
+            <div class="container d-flex justify-content-center">
+                <p class="p-2">Already have an account?</p>
+                <div class="d-inline-flex p-2">
+                    <a href="signin.html"><button class="btn btn-primary" type="button">Login</button></a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-fluid">
+            <span href="#" class="brand">T3 Blogs</span>
+
+            <span class="float-right" id="socialMedia">
+                <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+                <a href="http://facebook.com"><i class="fab fa-facebook-square"></i></a>
+                <a href="http://twitter.com"><i class="fab fa-twitter-square"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="scripts/checkPassword.js"></script>
+
+</html>

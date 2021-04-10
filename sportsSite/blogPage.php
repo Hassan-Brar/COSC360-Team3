@@ -33,10 +33,10 @@
         <!-- NAVBAR ELEMENTS -->
         <div class="collapse navbar-collapse" id="navbarContent">
             <div class="navbar-nav ml-auto">
-                <a href="mainPage.html"><button class="btn btn-primary" type="button">Home</button></a>
-                <a href="signup.html"><button class="btn btn-primary" type="button">Sign up</button></a>
-                <a href="signin.html"><button class="btn btn-primary" type="button">Login</button></a>
-                <a href="postPage.html"><button class="btn btn-primary" type="button">Post a Blog</button></a>
+                <a href="mainPage.php"><button class="btn btn-primary" type="button">Home</button></a>
+                <a href="signup.php"><button class="btn btn-primary" type="button">Sign up</button></a>
+                <a href="signin.php"><button class="btn btn-primary" type="button">Login</button></a>
+                <a href="postPage.php"><button class="btn btn-primary" type="button">Post a Blog</button></a>
             </div>
         </div>
     </nav>

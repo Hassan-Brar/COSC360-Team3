@@ -16,7 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/navFooter.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="CSS/postblog.css">
+    <link rel="stylesheet" href="CSS/signin.css">
     <title>Sports Blog</title>
 </head>
 <body>
@@ -33,42 +33,46 @@
         <!-- NAVBAR ELEMENTS -->
         <div class="collapse navbar-collapse" id="navbarContent">
             <div class="navbar-nav ml-auto">
-                <a href="mainPage.html"><button class="btn btn-primary" type="button">Home</button></a>
-                <a href="signup.html"><button class="btn btn-primary" type="button">Sign up</button></a>
-                <a href="signin.html"><button class="btn btn-primary" type="button">Login</button></a>
-                <a href="postPage.html"><button class="btn btn-primary" type="button">Post a Blog</button></a>
+                <a href="mainPage.php"><button class="btn btn-primary" type="button">Home</button></a>
+                <a href="signup.php"><button class="btn btn-primary" type="button">Sign up</button></a>
+                <a href="signin.php"><button class="btn btn-primary" type="button">Login</button></a>
+                <a href="postPage.php"><button class="btn btn-primary" type="button">Post a Blog</button></a>
             </div>
         </div>
     </nav>
 
-    <form action="postBlog.php" method="post">
-        <div class="container" id="postblog-area">
-        <h1>Post a Blog</h1>
+    <form action="signin.php" method="get">
+        <div class="container" id="signin-area">
+        <h1>Sign In</h1>
             <hr class="mb-3">
 
             <div class="container">
-                <div class="form-group">
-                    <label for="title"><h3>Blog Title</h3></label>
-                    <input type="text" class="form-control" id="title" placeholder="Title" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="blog-image"><h3>Blog Image</h3></label>
-                    <input type="file" class="form-control-file" id="blog-image" placeholder="Image" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="blog-text"><h3>Blog Text</h3></label>
-                    <textarea class="form-control" id="blog-text" required></textarea>
+                <div class="form-group row justify-content-center">
+                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    </div>
                 </div>
 
                 <div class="form-group row justify-content-center">
-                    <input type="submit" class="btn btn-primary justify-content-center" name="submitted" value="Post">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="password" placeholder="Password" required>
+                    </div>
                 </div>
 
+                <div class="form-group row justify-content-center">
+                    <input type="submit" class="btn btn-primary justify-content-center" name="submitted" value="Login">
+                </div>
             </div>
 
             <hr class="mb-3">
+            <div class="container d-flex justify-content-center">
+                <p class="p-2">Don't have an account?</p>
+                <div class="d-inline-flex p-2">
+                    <a href="signup.html"><button class="btn btn-primary" type="button">Signup</button></a>
+                </div>
+            </div>
         </div>
     </form>
 
