@@ -41,7 +41,7 @@
         </div>
     </nav>
 
-    <form action="postBlog.php" method="post">
+    <form action="postPage-verify.php" method="post">
         <div class="container" id="postblog-area">
         <h1>Post a Blog</h1>
             <hr class="mb-3">
@@ -49,17 +49,17 @@
             <div class="container">
                 <div class="form-group">
                     <label for="title"><h3>Blog Title</h3></label>
-                    <input type="text" class="form-control" id="title" placeholder="Title" required>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="blog-image"><h3>Blog Image</h3></label>
-                    <input type="file" class="form-control-file" id="blog-image" placeholder="Image" required>
+                    <input type="file" class="form-control-file" id="blog-image" name="blog-image" placeholder="Image" required>
                 </div>
 
                 <div class="form-group">
                     <label for="blog-text"><h3>Blog Text</h3></label>
-                    <textarea class="form-control" id="blog-text" required></textarea>
+                    <textarea class="form-control" id="blog-text" name="blog-text" required></textarea>
                 </div>
 
                 <div class="form-group row justify-content-center">

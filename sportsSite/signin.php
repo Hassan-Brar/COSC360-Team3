@@ -41,23 +41,32 @@
         </div>
     </nav>
 
-    <form action="signin.php" method="get">
+    <form action="signin-verify.php" method="get">
         <div class="container" id="signin-area">
         <h1>Sign In</h1>
             <hr class="mb-3">
+
+            <?php
+                if (isset($_REQUEST['error'])) {
+                    echo("
+                    <div class='alert alert-danger' role='alert'>
+                        Username not found, or password does not match.
+                    </div>");
+                }
+            ?>
 
             <div class="container">
                 <div class="form-group row justify-content-center">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                     </div>
                 </div>
 
                 <div class="form-group row justify-content-center">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="password" placeholder="Password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     </div>
                 </div>
 
@@ -70,7 +79,7 @@
             <div class="container d-flex justify-content-center">
                 <p class="p-2">Don't have an account?</p>
                 <div class="d-inline-flex p-2">
-                    <a href="signup.html"><button class="btn btn-primary" type="button">Signup</button></a>
+                    <a href="signup.php"><button class="btn btn-primary" type="button">Sign Up</button></a>
                 </div>
             </div>
         </div>

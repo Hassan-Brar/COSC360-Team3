@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $results = mysqli_query($connection, $sql);
 
       if($results) {
-        header("Location: http://localhost/project/sportsSite/mainPage.html"); 
+        header("Location: http://localhost/project/sportsSite/mainPage.php"); 
         exit(1);
       }
       else
