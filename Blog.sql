@@ -11,7 +11,7 @@ CREATE TABLE Users (
 CREATE TABLE Blogs (
     blogID INT,
     blogName VARCHAR(50),
-    blogText VARCHAR(MAX),
+    blogText VARCHAR(8000),
     blogImage BLOB,
     uploadDate DATETIME,
     likes INT,
