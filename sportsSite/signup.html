@@ -1,7 +1,3 @@
-<?php
-    require_once ('include/signup.inc.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,66 +40,46 @@
             </div>
         </div>
     </nav>
-    <div>
-    <!-- <?php
-        if(isset($_POST['submitted'])){
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
-            $sql = "INSERT INTO user (firstname, lastname, username, pass) VALUES (?,?,?,?);";
-            $stmtinsert = $db->prepare($sql);
-            $result = $stmtinsert->execute([$firstname, $lastname, $username, $password]);
-            if($result){
-                echo "Sign up successful";
-            }else{
-                echo "Error";
-            }
-        }
-
-    ?> -->
-    </div>
 
     <!-- Sign up Form -->
-    <form action="signup.php" method="post">
+    <form action="signup.php" id="signup-form" method="post" enctype="multipart/form-data">
         <div class="container" id="signup-area">
-        <h1>Registration</h1>
+            <h1>Registration</h1>
             <hr class="mb-3">
 
             <div class="container">
                 <div class="form-group row justify-content-center">
-                    <label for="firstname" class="col-sm-2 col-form-label">Firstname</label>
+                    <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="firstname" placeholder="First Name" required>
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
                     </div>
                 </div>
 
                 <div class="form-group row justify-content-center">
-                    <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
+                    <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
                     </div>
                 </div>
 
                 <div class="form-group row justify-content-center">
                     <label for="email" class="col-sm-2 col-form-label">Email Address</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="email" placeholder="Email Address" required>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" required>
                     </div>
                 </div>
 
                 <div class="form-group row justify-content-center">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                     </div>
                 </div>
 
                 <div class="form-group row justify-content-center">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-4">
-                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     </div>
                 </div>
 
@@ -117,7 +93,7 @@
                 <div class="form-group row justify-content-center">
                     <label for="image" class="col-sm-2 col-form-label">Image</label>
                     <div class="col-sm-4">
-                        <input type="file" class="form-control-file" id="image" placeholder="Image" required>
+                        <input type="file" class="form-control-file" id="image" name="image" placeholder="Image" required>
                     </div>
                 </div>
 
@@ -154,5 +130,7 @@
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="scripts/signupErr.js"></script>
+<script src="scripts/checkPassword.js"></script>
 
 </html>
