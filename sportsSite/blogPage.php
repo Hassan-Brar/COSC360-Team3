@@ -34,6 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <div class="navbar-nav ml-auto">
                 <a href="mainPage.php"><button class="btn btn-primary" type="button">Home</button></a>
+                <a href="browseBlogs.php"><button class="btn btn-primary" type="button">Browse Blogs</button></a>
                 <?php include 'include/navbarLoggedIn.php';?>
                 <a href="postPage.php"><button class="btn btn-primary" type="button">Post a Blog</button></a>
             </div>
@@ -82,16 +83,27 @@
         </div>
 
         <hr class="mb-3">
-        <div class="container" id="post-comment-section">
-            <form action="postComment.php" method="post">
-                <div class="form-group">
-                    <label for="post-comment"><h2>Post a comment</h2></label>
-                    <textarea class="form-control" id="post-comment" name="post-comment"></textarea>
-                </div>
-                <input type="hidden" name="blogID" value="<?php echo $blogID ?>" />
-                <button type="submit" class="btn btn-primary">Post Comment</button>
-            </form>
-        </div>
+
+        <?php 
+            if(!isset($_SESSION)) 
+                session_start(); 
+
+            if(isset($_SESSION["username"])) {
+                echo "<div class='container' id='post-comment-section'>
+                        <form action='postComment.php' method='post'>
+                            <div class='form-group'>
+                                <label for='post-comment'><h2>Post a comment</h2></label>
+                                <textarea class='form-control' id='post-comment' name='post-comment'></textarea>
+                            </div>
+                            <input type='hidden' name='blogID' value='$blogID'/>
+                            <button type='submit' class='btn btn-primary'>Post Comment</button>
+                        </form>
+                      </div>";
+            } else {
+                echo "<h5>Login to post a comment</h5>";
+                echo "<a href='signin.php'><button class='btn btn-primary' type='button'>Login</button></a>";
+            }
+        ?>
     </div>
 
     <!-- FOOTER -->

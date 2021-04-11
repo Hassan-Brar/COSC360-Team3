@@ -34,11 +34,19 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <div class="navbar-nav ml-auto">
                 <a href="mainPage.php"><button class="btn btn-primary" type="button">Home</button></a>
+                <a href="browseBlogs.php"><button class="btn btn-primary" type="button">Browse Blogs</button></a>
                 <?php include 'include/navbarLoggedIn.php';?>
                 <a href="postPage.php"><button class="btn btn-primary" type="button">Post a Blog</button></a>
             </div>
         </div>
     </nav>
+
+    <?php
+        if(!isset($_SESSION)) 
+            session_start(); 
+        if(!isset($_SESSION["username"]))
+            header("Location: http://localhost/project/sportsSite/mainPage.php"); 
+        ?>
 
     <div class="container" id="user-area">
         <?php

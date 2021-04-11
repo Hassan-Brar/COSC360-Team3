@@ -5,6 +5,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $pass = $_GET['password'];
   $pass = md5($pass);
 
+  if(!isset($_SESSION)) 
+    session_start(); 
+
   // login to the database
   $host = "localhost";
   $database = "project";
@@ -31,7 +34,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         session_start();
         $_SESSION["username"] = $username;
         // Go to main page
-        header("Location: http://localhost/project/sportsSite/mainPage.php"); 
+        $prev_url = $_SESSION['prevURL'];
+        header("Location: http://localhost$prev_url"); 
         exit(1);
     }
     else {
