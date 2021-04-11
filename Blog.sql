@@ -9,18 +9,20 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Blogs (
-    blogID INT,
+    blogID VARCHAR(60),
     blogName VARCHAR(50),
     blogText VARCHAR(8000),
     blogImage LONGBLOB,
     uploadDate DATETIME,
+    username VARCHAR(20),
     likes INT,
     views INT,
-    PRIMARY KEY(blogID)
+    PRIMARY KEY(blogID),
+    FOREIGN KEY (username) REFERENCES Users(username)
 );
 
 CREATE TABLE Comments (
-    blogID INT,
+    blogID VARCHAR(60),
     username VARCHAR(20),
     commentText VARCHAR(1000),
     FOREIGN KEY (username) REFERENCES Users(username),
@@ -30,7 +32,7 @@ CREATE TABLE Comments (
 CREATE TABLE Likes (
     liked BOOLEAN,
     username VARCHAR(20),
-    blogID INT,
+    blogID VARCHAR(60),
     FOREIGN KEY (username) REFERENCES Users(username),
     FOREIGN KEY (blogID) REFERENCES Blogs(blogID)
 );

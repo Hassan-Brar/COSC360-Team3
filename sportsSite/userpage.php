@@ -81,7 +81,7 @@
 
                     if(isset($results)) {
                         while ($row = mysqli_fetch_assoc($results)) {
-                        echo '<img class="rounded-circle" id="profile-icon" src="data:image/jpeg;base64,' .base64_encode($row['profileImage']) .'"/>';
+                            echo '<img class="rounded-circle" id="profile-icon" src="data:image/jpeg;base64,' .base64_encode($row['profileImage']) .'"/>';
                         }
                     }
                     else   

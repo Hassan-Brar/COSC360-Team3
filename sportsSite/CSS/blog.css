@@ -26,6 +26,10 @@
     padding-bottom: 1rem;
 }
 
+#comment-text {
+    margin-top: 10px;
+}
+
 .list-group{
     max-height: 600px;
     margin-bottom: 10px;
@@ -34,5 +38,5 @@
 }
 
 #post-comment {
-    height: 400px;
+    height: 200px;
 }

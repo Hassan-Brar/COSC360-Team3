@@ -16,7 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/navFooter.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="CSS/postblog.css">
+    <link rel="stylesheet" href="CSS/notFound.css">
     <title>Sports Blog</title>
 </head>
 <body>
@@ -40,47 +40,21 @@
         </div>
     </nav>
 
-    <!-- Must be logged in to post. If not, will go to login page -->
-    <?php
-        if(!isset($_SESSION)) 
-            session_start(); 
+    <div class="container" id="not-found-area">
+        <h1>Blog Not Found!</h1>
+        <hr class="mb-3">
 
-        if(!isset($_SESSION["username"]))
-            header("Location: http://localhost/project/sportsSite/signin.php");
-    ?>
-
-    <form action="postPage-verify.php" method="post" enctype="multipart/form-data">
-        <div class="container" id="postblog-area">
-        <h1>Post a Blog</h1>
-            <hr class="mb-3">
-
-            <div class="container">
-                <div class="form-group">
-                    <label for="title"><h3>Blog Title</h3></label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="blog-image"><h3>Blog Image</h3></label>
-                    <input type="file" class="form-control-file" id="blog-image" name="image" placeholder="Image" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="blog-text"><h3>Blog Text</h3></label>
-                    <textarea class="form-control" id="blog-text" name="blog-text" required></textarea>
-                </div>
-
-                <div class="container">
-                    <div class="form-group row">
-                        <input type="submit" class="btn btn-primary justify-content-center" name="submitted" value="Post">
-                    </div>
-                </div>
-
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <h3 class="inline">We are unable to find the blog you requested.</h3>
             </div>
-
-            <hr class="mb-3">
+            <div class="row justify-content-center">
+                <a href="mainPage.php"><button class="btn btn-primary" type="button">Return to Home Page</button></a>
+            </div>
         </div>
-    </form>
+
+    </div>
+
 
     <!-- FOOTER -->
     <footer>
