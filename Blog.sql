@@ -5,6 +5,7 @@ CREATE TABLE Users (
     pass VARCHAR(255),
     profileImage LONGBLOB,
     isAdmin BOOLEAN,
+    isDisabled BOOLEAN,
     PRIMARY KEY (username)
 );
 
