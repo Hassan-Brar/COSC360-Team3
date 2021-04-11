@@ -51,12 +51,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $results = mysqli_query($connection, $sql);
 
       if($results) {
-        header("Location: http://localhost/project/sportsSite/mainPage.php"); 
+        header("Location: http://localhost/project/sportsSite/signin.php"); 
         exit(1);
       }
       else
-        header("Location: http://localhost/project/sportsSite/signup.php"); 
-        echo "Unable to add user";
+        header("Location: http://localhost/project/sportsSite/signup.php?picError='imageTooLarge'"); 
     }
 
     mysqli_close($connection);

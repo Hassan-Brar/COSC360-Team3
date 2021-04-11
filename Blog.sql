@@ -3,7 +3,7 @@ CREATE TABLE Users (
     lastname VARCHAR(25),
     username VARCHAR(20),
     pass VARCHAR(255),
-    profileImage BLOB,
+    profileImage LONGBLOB,
     isAdmin BOOLEAN,
     PRIMARY KEY (username)
 );
@@ -12,7 +12,7 @@ CREATE TABLE Blogs (
     blogID INT,
     blogName VARCHAR(50),
     blogText VARCHAR(8000),
-    blogImage BLOB,
+    blogImage LONGBLOB,
     uploadDate DATETIME,
     likes INT,
     views INT,

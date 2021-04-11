@@ -1,0 +1,14 @@
+#user-area {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#profile-icon {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+#password-update {
+    margin-top: 1rem;
+}

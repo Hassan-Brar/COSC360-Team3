@@ -34,8 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <div class="navbar-nav ml-auto">
                 <a href="mainPage.php"><button class="btn btn-primary" type="button">Home</button></a>
-                <a href="signup.php"><button class="btn btn-primary" type="button">Sign up</button></a>
-                <a href="signin.php"><button class="btn btn-primary" type="button">Login</button></a>
+                <?php include 'include/navbarLoggedIn.php';?>
                 <a href="postPage.php"><button class="btn btn-primary" type="button">Post a Blog</button></a>
             </div>
         </div>
@@ -65,7 +64,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- TOP ARTICLES -->
     <div class="container" style="margin-top: 2rem;">

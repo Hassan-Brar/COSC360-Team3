@@ -27,6 +27,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     $results = mysqli_query($connection, $sql);
 
     if(mysqli_num_rows($results) != 0) {
+        // Set session as logged in as user
+        session_start();
+        $_SESSION["username"] = $username;
+        // Go to main page
         header("Location: http://localhost/project/sportsSite/mainPage.php"); 
         exit(1);
     }

@@ -56,6 +56,10 @@
                 }
             ?>
 
+            <div class="container" id="password-warning"></div>
+            </div>
+
+
             <div class="container">
                 <div class="form-group row justify-content-center">
                     <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
