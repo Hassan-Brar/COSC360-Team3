@@ -6,6 +6,7 @@
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -58,14 +59,16 @@
         </div>
 
         <div class="container d-flex align-items-center" style="margin-top: 10px;">
-            <?php echo "<p><i class='fas fa-heart'></i> $likes</p>"?>
+            <?php echo "<p><i class='fas fa-heart'></i> <span id='likes-count'>$likes</span></p>"?>
             <p>&nbsp&nbsp&nbsp</p>
             <?php echo "<p><i class='fas fa-eye'></i> $views</p>"?>
         </div>
 
-        <div class="container" id="like-button">
-            <button class="btn btn-danger"><i class="fas fa-heart"></i>  Like</button>
+        <div class="container" id="like-button-container">
+            <?php include 'include/checkLiked.php';?>
         </div>
+
+        <?php include 'likeBtn.php';?>
 
         <div class="container" id="text">
             <?php echo "<p>$blogText</p>"?>
@@ -121,7 +124,6 @@
 
 </body>
 
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 

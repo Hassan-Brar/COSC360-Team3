@@ -3,6 +3,8 @@
         // get the post request data
         $comment = $_POST['post-comment'];
         $blogID = $_POST['blogID'];
+
+        $comment = addslashes($comment);
         
         // Get username
         if(!isset($_SESSION)) 

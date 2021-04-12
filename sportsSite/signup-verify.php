@@ -45,8 +45,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     else {
       $pass = md5($pass);
-      $sql = "INSERT INTO Users(firstname, lastname, username, pass, profileImage, isAdmin) 
-              VALUES('$firstname', '$lastname', '$username', '$pass', '$image', FALSE)";
+      $sql = "INSERT INTO Users(firstname, lastname, username, pass, profileImage, isAdmin, isDisabled) 
+              VALUES('$firstname', '$lastname', '$username', '$pass', '$image', FALSE, FALSE)";
       
       $results = mysqli_query($connection, $sql);
 
@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit(1);
       }
       else
-        header("Location: http://localhost/project/sportsSite/signup.php?picError='imageTooLarge'"); 
+        header("Location: http://localhost/project/sportsSite/signup.php?picError=imageTooLarge"); 
     }
 
     mysqli_close($connection);

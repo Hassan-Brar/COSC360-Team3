@@ -3,6 +3,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // get the post request data
   $title = $_POST['title'];
   $text = $_POST['blog-text'];
+
+  $title = addslashes($title);
+  $text = addslashes($text);
   
   // Get image
   $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
