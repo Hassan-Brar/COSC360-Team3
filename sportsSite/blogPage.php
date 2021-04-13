@@ -80,12 +80,14 @@
         <div class="container"><h2>Comments</h2></div>
 
         <div class="container">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" id="comments-list">
                 <?php include 'include/getComments.php';?>
             </ul>
         </div>
 
         <hr class="mb-3">
+
+        <?php include 'include/checkUserDisabled.php';?>
 
         <?php 
             if(!isset($_SESSION)) 
@@ -93,13 +95,13 @@
 
             if(isset($_SESSION["username"])) {
                 echo "<div class='container' id='post-comment-section'>
-                        <form action='postComment.php' method='post'>
+                        <form>
                             <div class='form-group'>
                                 <label for='post-comment'><h2>Post a comment</h2></label>
-                                <textarea class='form-control' id='post-comment' name='post-comment'></textarea>
+                                <textarea class='form-control' id='post-comment' name='post-comment' required></textarea>
                             </div>
                             <input type='hidden' name='blogID' value='$blogID'/>
-                            <button type='submit' class='btn btn-primary'>Post Comment</button>
+                            <button type='submit' class='btn btn-primary' id='submit-comment'>Post Comment</button>
                         </form>
                       </div>";
             } else {
@@ -107,6 +109,24 @@
                 echo "<a href='signin.php'><button class='btn btn-primary' type='button'>Login</button></a>";
             }
         ?>
+
+        <script>
+            console.log('hello world!');
+            $('#submit-comment').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "postComment.php",
+                    data: { 'post-comment': $("#post-comment").val(),
+                            'blogID': '<?php echo $blogID ?>' }
+                }).done(function(msg) {
+                    $("#no-comment").remove();
+                    $("#post-comment").val("");
+                    $("#comments-list").append(msg);
+                });
+            });
+        </script>
+
     </div>
 
     <!-- FOOTER -->

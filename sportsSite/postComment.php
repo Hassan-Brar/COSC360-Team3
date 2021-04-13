@@ -33,11 +33,29 @@
                     VALUES('$blogID', '$username', '$comment')";
             $results = mysqli_query($connection, $sql);
             
+            if($results) {
+                $sql_get_commenter = "SELECT * 
+                                      FROM Users 
+                                      WHERE username = '$username'";
+                $results_commenter = mysqli_query($connection, $sql_get_commenter);
+
+                foreach($results_commenter as $row_commenter) {
+                    $commenterFirstName = $row_commenter['firstname'];
+                    $commenterLastName = $row_commenter['lastname'];
+                    $commenterImage = $row_commenter['profileImage'];
+                }
+
+                echo ("<li class='list-group-item'>
+                        <div class='container d-flex align-items-center'>
+                            <img class='rounded-circle' id='profile-icon' src='data:image/jpeg;base64," .base64_encode($commenterImage) ."'/>
+                            <p class='card-text' id='poster-name'>$commenterFirstName $commenterLastName</p>
+                        </div>
+                        <div class='container'>
+                            <p id='comment-text'>$comment</p>
+                        </div>
+                    </li>");
+            }
             mysqli_close($connection);
-
-            // ADD ERROR TESTING HERE
-            header("Location: http://localhost/project/sportsSite/blogPage.php?blogID=$blogID");
-
         }
     }
 

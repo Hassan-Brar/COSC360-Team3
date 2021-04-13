@@ -50,6 +50,8 @@
             header("Location: http://localhost/project/sportsSite/signin.php");
     ?>
 
+    <?php include 'include/checkUserDisabled.php';?>
+
     <form action="postPage-verify.php" method="post" id="blog-post-form" enctype="multipart/form-data">
         <div class="container" id="postblog-area">
             <h1>Post a Blog</h1>
