@@ -55,6 +55,12 @@
                         Username or Email already used!
                     </div>");
                 }
+                if (isset($_REQUEST['dbError'])) {
+                    echo("
+                    <div class='alert alert-danger' role='alert'>
+                        There was an error while signing up.
+                    </div>");
+                }
             ?>
 
             <div class="container" id="password-warning"></div>

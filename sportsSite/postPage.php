@@ -49,15 +49,25 @@
             header("Location: http://localhost/project/sportsSite/signin.php");
     ?>
 
-    <form action="postPage-verify.php" method="post" enctype="multipart/form-data">
+    <form action="postPage-verify.php" method="post" id="blog-post-form" enctype="multipart/form-data">
         <div class="container" id="postblog-area">
-        <h1>Post a Blog</h1>
+            <h1>Post a Blog</h1>
             <hr class="mb-3">
+
+            <?php
+                if (isset($_REQUEST['uploadError'])) {
+                    echo("
+                    <div class='alert alert-danger' role='alert'>
+                        There was an error uploading this blog.
+                    </div>");
+                }
+            ?>
 
             <div class="container">
                 <div class="form-group">
                     <label for="title"><h3>Blog Title</h3></label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+                    <small id="title-limit" class="form-text text-muted">Max limit of 50 characters.</small>
                 </div>
                 
                 <div class="form-group">
@@ -68,6 +78,7 @@
                 <div class="form-group">
                     <label for="blog-text"><h3>Blog Text</h3></label>
                     <textarea class="form-control" id="blog-text" name="blog-text" required></textarea>
+                    <small id="blog-limit" class="form-text text-muted">Max limit of 8000 characters.</small>
                 </div>
 
                 <div class="container">
@@ -99,5 +110,6 @@
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="scripts/checkBlogLimit.js"></script>
 
 </html>

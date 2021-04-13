@@ -45,10 +45,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     mysqli_close($connection);
 
-    // ADD ERROR TESTING HERE
-    header("Location: http://localhost/project/sportsSite/mainPage.php");
-
+   if($results) {
+    header("Location: http://localhost/project/sportsSite/blogPage.php?blogID=$uuid"); 
+    mysqli_close($connection);
+    exit(1);
   }
+  else
+    header("Location: http://localhost/project/sportsSite/postPage.php?uploadError=true"); 
+  }
+
+  mysqli_close($connection);
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'GET') {

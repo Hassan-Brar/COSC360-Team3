@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $results = mysqli_query($connection, $sql);
 
     if(mysqli_num_rows($results) != 0) {
-      header("Location: http://localhost/project/sportsSite/signup.php?error='wrongUorE'"); 
+      header("Location: http://localhost/project/sportsSite/signup.php?error=wrongUorE"); 
       exit(1);
     }
 
@@ -39,23 +39,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $results = mysqli_query($connection, $sql);
 
     if(mysqli_num_rows($results) != 0) {
-      header("Location: http://localhost/project/sportsSite/signup.php?error='wrongUorE'");
+      header("Location: http://localhost/project/sportsSite/signup.php?error=wrongUorE");
       exit(1);
     }
 
     else {
       $pass = md5($pass);
-      $sql = "INSERT INTO Users(firstname, lastname, username, pass, profileImage, isAdmin, isDisabled) 
-              VALUES('$firstname', '$lastname', '$username', '$pass', '$image', FALSE, FALSE)";
+      $sql = "INSERT INTO Users(firstname, lastname, email, username, pass, profileImage, isAdmin, isDisabled) 
+              VALUES('$firstname', '$lastname', '$email', '$username', '$pass', '$image', FALSE, FALSE)";
       
       $results = mysqli_query($connection, $sql);
 
       if($results) {
-        header("Location: http://localhost/project/sportsSite/signin.php"); 
+        header("Location: http://localhost/project/sportsSite/signin.php");
+        mysqli_close($connection);
         exit(1);
       }
       else
-        header("Location: http://localhost/project/sportsSite/signup.php?picError=imageTooLarge"); 
+        header("Location: http://localhost/project/sportsSite/signup.php?dbError=true"); 
     }
 
     mysqli_close($connection);
