@@ -2,6 +2,7 @@ CREATE TABLE Users (
     firstname VARCHAR(25),
     lastname VARCHAR(25),
     username VARCHAR(20),
+    email VARCHAR(320),
     pass VARCHAR(255),
     profileImage LONGBLOB,
     isAdmin BOOLEAN,
@@ -35,5 +36,10 @@ CREATE TABLE Likes (
     username VARCHAR(20),
     blogID VARCHAR(60),
     FOREIGN KEY (username) REFERENCES Users(username),
+    FOREIGN KEY (blogID) REFERENCES Blogs(blogID)
+);
+
+CREATE TABLE Featured (
+    blogID VARCHAR(60),
     FOREIGN KEY (blogID) REFERENCES Blogs(blogID)
 );
