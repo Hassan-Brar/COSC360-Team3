@@ -50,18 +50,7 @@
     <!-- TOP ARTICLES -->
     <div class="container" style="margin-top: 2rem;">
         <hr class="mb-3">
-        <h1>Top Articles</h1>
-
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Sort By
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">Likes</a>
-              <a class="dropdown-item">Views</a>
-            </div>
-          </div>
-
+        <h1>Most Liked Articles</h1>
     </div>
 
     <div class="container" id="top-articles">

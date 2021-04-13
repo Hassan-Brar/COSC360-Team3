@@ -1,4 +1,7 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $query = $_GET['query'];
+
     // login to the database
     $host = "localhost";
     $database = "project";
@@ -18,12 +21,12 @@
     else {
         $sql = "SELECT * 
                 FROM Blogs 
-                ORDER BY likes DESC
-                LIMIT 6";
+                WHERE blogName LIKE '%$query%'
+                ORDER BY views DESC";
         $results = mysqli_query($connection, $sql);
 
         if(mysqli_num_rows($results) == 0) {
-            echo "<h5>Unable to load blogs.</h5>";
+            echo "<h5>No Results Found.</h5>";
             mysqli_close($connection);
             exit(1);
         }
@@ -88,4 +91,9 @@
         
         mysqli_close($connection);
     }
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo "Unable to make a POST request!";
+}
 ?>

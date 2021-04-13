@@ -6,6 +6,7 @@
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,7 +17,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/navFooter.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="CSS/notFound.css">
+    <link rel="stylesheet" href="CSS/mainPage.css">
+    <link rel="stylesheet" href="CSS/browseBlogs.css">
     <title>Sports Blog</title>
 </head>
 <body>
@@ -40,6 +42,47 @@
             </div>
         </div>
     </nav>
+
+    <form>
+        <div class="container" id="browse-area">
+            <h1>Browse</h1>
+            <hr class="mb-3">
+
+            <div class="container">
+                <div class="form-group row justify-content-center">
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Search" required>
+                    </div>
+                </div>
+
+                </div>
+
+                <div class="form-group row justify-content-center">
+                    <input type="submit" class="btn btn-primary justify-content-center" name="searched" value="Search" id="search-btn">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        $('#search-btn').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: "include/searchBlogs.php",
+                data: { 'query': $("#search").val() }
+            }).done(function(msg) {
+                $('#results-section').html(msg);
+            });
+        });
+    </script>
+
+    <div class="container" id="results-area">
+        <h1>Results</h1>
+        <hr class="mb-3">
+        <div class="container" id="results-section">
+        </div>
+    </div>
 
    <!-- FOOTER -->
    <footer>
