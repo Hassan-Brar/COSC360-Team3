@@ -24,7 +24,7 @@
         $results = mysqli_query($connection, $sql);
 
         if(mysqli_num_rows($results) == 0) {
-            echo "<h5>It looks like this blog has no comments yet. How about you be the first?</h5>";
+            echo "<h5 id='no-comment'>It looks like this blog has no comments yet. How about you be the first?</h5>";
         }
 
         foreach($results as $row) {
