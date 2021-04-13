@@ -44,29 +44,12 @@
     <!-- FEATURED ARTICLE -->
     <div class="container-fluid" id="featured-article">
         <h1>Featured Article</h1>
-        <div class="card">
-            <img class="card-img-top" src="testImages/featured.jpeg" alt="Card image cap">
-            <div class="card-body">
-                <div class="container">
-                    <h3 class="card-title">Article Title</h3>
-                    <p>Posted: DATE</p>
-                </div>
-                <div class="container d-flex align-items-center">
-                    <img src="testProfileIcon/lebron.png" class="rounded-circle" id="profile-icon"></img>
-                    <p class="card-text">Poster Name</p>
-                </div>
-                <div class="container d-flex align-items-center" style="margin-top: 10px;">
-                    <p><i class="fas fa-heart"></i> LIKE_COUNT</p>
-                    <p>&nbsp&nbsp&nbsp</p>
-                    <p><i class="fas fa-eye"></i> VIEW_COUNT</p>
-                </div>
-                <a href="#" class="btn btn-primary">View Article</a>
-            </div>
-        </div>
+        <?php include 'include/getFeaturedArticle.php';?>
     </div>
 
     <!-- TOP ARTICLES -->
     <div class="container" style="margin-top: 2rem;">
+        <hr class="mb-3">
         <h1>Top Articles</h1>
 
         <div class="dropdown">
@@ -74,153 +57,15 @@
               Sort By
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Likes</a>
-              <a class="dropdown-item" href="#">Views</a>
+              <a class="dropdown-item">Likes</a>
+              <a class="dropdown-item">Views</a>
             </div>
           </div>
 
     </div>
 
     <div class="container" id="top-articles">
-        <div class="row" id="top-articles-row">
-
-            <div class="col-sm">
-                <div class="card">
-                    <img class="card-img-top" src="testImages/basketball1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="container">
-                            <h3 class="card-title">Article Title</h3>
-                            <p>Posted: DATE</p>
-                        </div>
-                        <div class="container d-flex align-items-center">
-                            <img src="testProfileIcon/lebron.png" class="rounded-circle" id="profile-icon"></img>
-                            <p class="card-text">Poster Name</p>
-                        </div>
-                        <div class="container d-flex align-items-center" style="margin-top: 10px;">
-                            <p><i class="fas fa-heart"></i> LIKE_COUNT</p>
-                            <p>&nbsp&nbsp&nbsp</p>
-                            <p><i class="fas fa-eye"></i> VIEW_COUNT</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">View Article</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="card">
-                    <img class="card-img-top" src="testImages/football1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="container">
-                            <h3 class="card-title">Article Title</h3>
-                            <p>Posted: DATE</p>
-                        </div>
-                        <div class="container d-flex align-items-center">
-                            <img src="testProfileIcon/brady.png" class="rounded-circle" id="profile-icon"></img>
-                            <p class="card-text">Poster Name</p>
-                        </div>
-                        <div class="container d-flex align-items-center" style="margin-top: 10px;">
-                            <p><i class="fas fa-heart"></i> LIKE_COUNT</p>
-                            <p>&nbsp&nbsp&nbsp</p>
-                            <p><i class="fas fa-eye"></i> VIEW_COUNT</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">View Article</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-sm">
-                <div class="card">
-                    <img class="card-img-top" src="testImages/featured.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="container">
-                            <h3 class="card-title">Article Title</h3>
-                            <p>Posted: DATE</p>
-                        </div>
-                        <div class="container d-flex align-items-center">
-                            <img src="testProfileIcon/lebron.png" class="rounded-circle" id="profile-icon"></img>
-                            <p class="card-text">Poster Name</p>
-                        </div>
-                        <div class="container d-flex align-items-center" style="margin-top: 10px;">
-                            <p><i class="fas fa-heart"></i> LIKE_COUNT</p>
-                            <p>&nbsp&nbsp&nbsp</p>
-                            <p><i class="fas fa-eye"></i> VIEW_COUNT</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">View Article</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-
-        <div class="row" id="top-articles-row">
-
-            <div class="col-sm">
-                <div class="card">
-                    <img class="card-img-top" src="testImages/featured.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="container">
-                            <h3 class="card-title">Article Title</h3>
-                            <p>Posted: DATE</p>
-                        </div>
-                        <div class="container d-flex align-items-center">
-                            <img src="testProfileIcon/lebron.png" class="rounded-circle" id="profile-icon"></img>
-                            <p class="card-text">Poster Name</p>
-                        </div>
-                        <div class="container d-flex align-items-center" style="margin-top: 10px;">
-                            <p><i class="fas fa-heart"></i> LIKE_COUNT</p>
-                            <p>&nbsp&nbsp&nbsp</p>
-                            <p><i class="fas fa-eye"></i> VIEW_COUNT</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">View Article</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="card">
-                    <img class="card-img-top" src="testImages/basketball1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="container">
-                            <h3 class="card-title">Article Title</h3>
-                            <p>Posted: DATE</p>
-                        </div>
-                        <div class="container d-flex align-items-center">
-                            <img src="testProfileIcon/lebron.png" class="rounded-circle" id="profile-icon"></img>
-                            <p class="card-text">Poster Name</p>
-                        </div>
-                        <div class="container d-flex align-items-center" style="margin-top: 10px;">
-                            <p><i class="fas fa-heart"></i> LIKE_COUNT</p>
-                            <p>&nbsp&nbsp&nbsp</p>
-                            <p><i class="fas fa-eye"></i> VIEW_COUNT</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">View Article</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="card">
-                    <img class="card-img-top" src="testImages/football1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="container">
-                            <h3 class="card-title">Article Title</h3>
-                            <p>Posted: DATE</p>
-                        </div>
-                        <div class="container d-flex align-items-center">
-                            <img src="testProfileIcon/lebron.png" class="rounded-circle" id="profile-icon"></img>
-                            <p class="card-text">Poster Name</p>
-                        </div>
-                        <div class="container d-flex align-items-center" style="margin-top: 10px;">
-                            <p><i class="fas fa-heart"></i> LIKE_COUNT</p>
-                            <p>&nbsp&nbsp&nbsp</p>
-                            <p><i class="fas fa-eye"></i> VIEW_COUNT</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">View Article</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+        <?php include 'include/getInitialArticles.php';?>
     </div>
 
     <!-- FOOTER -->
