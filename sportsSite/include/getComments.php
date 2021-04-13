@@ -1,4 +1,7 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $blogID = $_GET['blogID'];
+
     // login to the database
     $host = "localhost";
     $database = "project";
@@ -16,8 +19,6 @@
     }   
 
     else {
-        $blogID = htmlspecialchars($_GET["blogID"]);
-
         $sql = "SELECT * 
                 FROM Comments 
                 WHERE blogID = '$blogID'";
@@ -55,4 +56,5 @@
         
         mysqli_close($connection);
     }
+}
 ?>

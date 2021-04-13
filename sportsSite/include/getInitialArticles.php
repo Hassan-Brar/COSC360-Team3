@@ -62,20 +62,22 @@
                     <div class='card' id='article-card' >
                         <img class='card-img-top' src='data:image/jpeg;base64," .base64_encode($blogImage) ."'>
                         <div class='card-body'>
-                            <div class='container'>
+                            <div class='container' id='name-date'>
                                 <h3 class='card-title'>$blogName</h3>
                                 <p>Posted: $uploadDate</p>
                             </div>
-                            <div class='container d-flex align-items-center'>
-                                <img class='rounded-circle' id='profile-icon' src='data:image/jpeg;base64," .base64_encode($uploaderImage) ."'></img>
-                                <p class='card-text'>$uploaderFirstName $uploaderLastName</p>
+                            <div class='container' id='article-info'>
+                                <div class='container d-flex align-items-center'>
+                                    <img class='rounded-circle' id='profile-icon' src='data:image/jpeg;base64," .base64_encode($uploaderImage) ."'></img>
+                                    <p class='card-text'>$uploaderFirstName $uploaderLastName</p>
+                                </div>
+                                <div class='container d-flex align-items-center' style='margin-top: 10px;'>
+                                    <p><i class='fas fa-heart'></i> $likes</p>
+                                    <p>&nbsp&nbsp&nbsp</p>
+                                    <p><i class='fas fa-eye'></i> $views</p>
+                                </div>
+                                <a href='blogPage.php?blogID=$blogID' class='btn btn-primary'>View Article</a>
                             </div>
-                            <div class='container d-flex align-items-center' style='margin-top: 10px;'>
-                                <p><i class='fas fa-heart'></i> $likes</p>
-                                <p>&nbsp&nbsp&nbsp</p>
-                                <p><i class='fas fa-eye'></i> $views</p>
-                            </div>
-                            <a href='blogPage.php?blogID=$blogID' class='btn btn-primary'>View Article</a>
                         </div>
                     </div>
                 </div>

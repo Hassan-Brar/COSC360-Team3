@@ -81,8 +81,28 @@
 
         <div class="container">
             <ul class="list-group list-group-flush" id="comments-list">
-                <?php include 'include/getComments.php';?>
             </ul>
+
+            <script>
+                $.ajax({
+                    type: "GET",
+                    url: "include/getComments.php",
+                    data: { 'blogID': '<?php echo htmlspecialchars($_GET["blogID"]) ?>'}
+                }).done(function(msg) {
+                    $("#comments-list").html(msg);
+                });
+
+                setInterval(() => {
+                    $.ajax({
+                    type: "GET",
+                    url: "include/getComments.php",
+                    data: { 'blogID': '<?php echo htmlspecialchars($_GET["blogID"]) ?>'}
+                    }).done(function(msg) {
+                        $("#comments-list").html(msg);
+                    });
+                }, 5000);
+            </script>
+
         </div>
 
         <hr class="mb-3">
@@ -99,6 +119,7 @@
                             <div class='form-group'>
                                 <label for='post-comment'><h2>Post a comment</h2></label>
                                 <textarea class='form-control' id='post-comment' name='post-comment' required></textarea>
+                                <small id='comment-limit' class='form-text text-muted'>Max limit of 1000 characters.</small>
                             </div>
                             <input type='hidden' name='blogID' value='$blogID'/>
                             <button type='submit' class='btn btn-primary' id='submit-comment'>Post Comment</button>
@@ -110,10 +131,14 @@
             }
         ?>
 
+        <script src="scripts/checkCommentLimit.js"></script>
+
         <script>
-            console.log('hello world!');
             $('#submit-comment').click(function(e) {
                 e.preventDefault();
+                var comment = document.getElementById('post-comment');
+                if(comment.value.length > 1000)
+                    return;
                 $.ajax({
                     type: "POST",
                     url: "postComment.php",
