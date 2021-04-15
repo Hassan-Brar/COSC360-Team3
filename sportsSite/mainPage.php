@@ -43,9 +43,13 @@
 
     <!-- FEATURED ARTICLE -->
     <div class="container-fluid" id="featured-article">
-        <h1>Featured Article</h1>
-        <?php include 'include/getFeaturedArticle.php';?>
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#FArticle">-</button>
+            <h1>Featured Article</h1>
+        <div id="FArticle" class="collapse show">
+            <?php include 'include/getFeaturedArticle.php';?>
+        </div>
     </div>
+
 
     <!-- TOP ARTICLES -->
     <div class="container" style="margin-top: 2rem;">

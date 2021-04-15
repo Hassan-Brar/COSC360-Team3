@@ -56,10 +56,12 @@
                 echo "</div><div class='row' id='top-articles-row'>";
             else if($count % 2 == 0)
                 echo "<div class='row' id='top-articles-row'>";
-
+            
             echo ("
                 <div class='col-sm'>
-                    <div class='card' id='article-card' >
+                    <div class='card' id='article-card'>
+                    <button type='button' class='btn btn-primary btn-sm' data-toggle='collapse' data-target='#blog$blogID'>-</button>
+                    <div id='blog$blogID' class='collapse show'>
                         <img class='card-img-top' src='data:image/jpeg;base64," .base64_encode($blogImage) ."'>
                         <div class='card-body'>
                             <div class='container' id='name-date'>
@@ -79,6 +81,7 @@
                                 <a href='blogPage.php?blogID=$blogID' class='btn btn-primary'>View Article</a>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             ");
