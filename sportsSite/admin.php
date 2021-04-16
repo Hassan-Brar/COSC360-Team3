@@ -89,6 +89,42 @@
     </script>
 
 
+    <form>
+        <div class="container" id="findUser-area">
+        <h2>Set Featured</h2>
+            <hr class="mb-3">
+
+            <div class="container">
+                <div class="form-group row justify-content-center">
+                    <label for="blogID" class="col-sm-2 col-form-label">BlogID</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="blogID" name="blogID" placeholder="BlogID" required>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <input type="submit" class="btn btn-primary justify-content-center" name="submitted" value="Set Featured" id="set-featured-btn">
+                </div>
+            </div>
+            <hr class="mb-3">
+        </div>
+    </form>
+
+    <div class="container" id="featured-result"></div>
+
+    <script>
+        $('#set-featured-btn').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "include/adminSetFeatured.php",
+                data: { 'blogID': $("#blogID").val() }
+            }).done(function(msg) {
+                $('#featured-result').html(msg);
+            });
+        });
+    </script>
+
+
     <!-- FOOTER -->
     <footer>
         <div class="container-fluid">
