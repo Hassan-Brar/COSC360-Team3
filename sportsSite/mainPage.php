@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="CSS/navFooter.css">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/mainPage.css">
+    <link rel="stylesheet" href="CSS/dropdownbtn.css">
+
+    <!-- jquery -->
+    <script 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+
     <title>Sports Blog</title>
 </head>
 <body>
@@ -50,16 +57,67 @@
         </div>
     </div>
 
+    <script> 
+        $(document)ready(function(){
+            $("#fltrBtn").click(function(){
+                 $(#articles).innerHTML("<?php include 'include/getArticlesByDate.php';?>");
+            });
+        })
+        // $('#filter-btn').click(function(e) {
+        //     e.preventDefault();
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "include/getArticlesByDate.php",
+        //         data: { PUT DATA HERE IF YOU NEED TO DO IT }
+        //     }).done(function(msg) {
+        //         $('#articles').html(msg);
+        //     });
+        // });
+    </script>
+
 
     <!-- TOP ARTICLES -->
     <div class="container" style="margin-top: 2rem;">
         <hr class="mb-3">
-        <h1>Most Liked Articles</h1>
+        <h1>Articles</h1>
+        <div class="dropdown">
+        <!-- <button id="fltrBtn" class="dropbtn">Filter</button>
+            <div class="dropdown-content" id="selectFilter">
+                <a href="#articles" option value="date">Filter by date</a>
+                <a href="#articles" option value="liked">Filter by most liked</a>
+            </div>
+        </div> -->
+        <button id="fltrBtn">Filter by date</button
     </div>
 
-    <div class="container" id="top-articles">
+
+     <div class="container" id="articles">
         <?php include 'include/getInitialArticles.php';?>
     </div>
+
+    
+    <!--<div class="container" id="dated-articles">
+        <?php include 'include/getArticlesByDate.php';?>
+    </div> -->
+
+    <!-- <div class="container" id="articles"> -->
+    
+
+        <!-- // <script>
+        //     document.getElementById('selectFilter').onclick = function() {validate()};
+
+        // function validate(){
+        //     var check = document.getElementById("selectFilter").selectedIndex;
+        //         if (check == 1){
+        //             return <?php include 'include/getInitialArticles.php';?>;
+        //         }
+        //         else{
+        //             return <?php include 'include/getArticlesByDate.php';?>;
+        //         }
+        // }
+        // </script>  -->
+
+        
 
     <!-- FOOTER -->
     <footer>
