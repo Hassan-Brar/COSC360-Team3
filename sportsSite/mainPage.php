@@ -50,30 +50,12 @@
 
     <!-- FEATURED ARTICLE -->
     <div class="container-fluid" id="featured-article">
-        <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#FArticle">-</button>
+        <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#FArticle">-</button> -->
             <h1>Featured Article</h1>
-        <div id="FArticle" class="collapse show">
+        <!-- <div id="FArticle" class="collapse show"> -->
             <?php include 'include/getFeaturedArticle.php';?>
-        </div>
+        <!-- </div> -->
     </div>
-
-    <script> 
-        $(document)ready(function(){
-            $("#fltrBtn").click(function(){
-                 $(#articles).innerHTML("<?php include 'include/getArticlesByDate.php';?>");
-            });
-        })
-        // $('#filter-btn').click(function(e) {
-        //     e.preventDefault();
-        //     $.ajax({
-        //         type: "GET",
-        //         url: "include/getArticlesByDate.php",
-        //         data: { PUT DATA HERE IF YOU NEED TO DO IT }
-        //     }).done(function(msg) {
-        //         $('#articles').html(msg);
-        //     });
-        // });
-    </script>
 
 
     <!-- TOP ARTICLES -->
@@ -81,42 +63,55 @@
         <hr class="mb-3">
         <h1>Articles</h1>
         <div class="dropdown">
-        <!-- <button id="fltrBtn" class="dropbtn">Filter</button>
-            <div class="dropdown-content" id="selectFilter">
-                <a href="#articles" option value="date">Filter by date</a>
-                <a href="#articles" option value="liked">Filter by most liked</a>
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sort By
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <p class="dropdown-item" id="most-liked">Most Liked</p>
+              <p class="dropdown-item" id="most-viewed">Most Viewed</p>
+              <p class="dropdown-item" id="latest">Most Recent</p>
             </div>
-        </div> -->
-        <button id="fltrBtn">Filter by date</button
+          </div>
     </div>
-
 
      <div class="container" id="articles">
         <?php include 'include/getInitialArticles.php';?>
-    </div>
+    </div>    
 
-    
-    <!--<div class="container" id="dated-articles">
-        <?php include 'include/getArticlesByDate.php';?>
-    </div> -->
+    <script> 
+        $("#most-liked").click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: "include/getInitialArticles.php"
+            }).done(function(msg) {
+                console.log(msg);
+                $("#articles").html(msg);
+            });
+        });
 
-    <!-- <div class="container" id="articles"> -->
-    
-
-        <!-- // <script>
-        //     document.getElementById('selectFilter').onclick = function() {validate()};
-
-        // function validate(){
-        //     var check = document.getElementById("selectFilter").selectedIndex;
-        //         if (check == 1){
-        //             return <?php include 'include/getInitialArticles.php';?>;
-        //         }
-        //         else{
-        //             return <?php include 'include/getArticlesByDate.php';?>;
-        //         }
-        // }
-        // </script>  -->
-
+        $("#most-viewed").click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: "include/getArticlesByViews.php"
+            }).done(function(msg) {
+                console.log(msg);
+                $("#articles").html(msg);
+            });
+        });
+        
+        $("#latest").click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: "include/getArticlesByDate.php"
+            }).done(function(msg) {
+                console.log(msg);
+                $("#articles").html(msg);
+            });
+        });
+    </script>
         
 
     <!-- FOOTER -->
